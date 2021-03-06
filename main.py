@@ -53,7 +53,7 @@ app.layout = html.Div(
     Output("graph-api", "figure"),
     [Input("currency", "value"), Input("interval-component", "n_intervals")],
 )
-def update_figure_main(currency, unused):
+def update_figure(currency, unused):
     """Update grap-api"""
     filtered_df = libs.apiCall.getData(currency)
 
@@ -122,7 +122,7 @@ def update_figure_main(currency, unused):
     Output("graph-volume", "figure"),
     [Input("currency", "value"), Input("interval-component", "n_intervals")],
 )
-def update_figure(currency, unused):
+def update_figure_volume(currency, unused):
     """Update graph-volume"""
     filtered_df = libs.apiCall.getData(currency)
 
@@ -150,7 +150,7 @@ def update_figure(currency, unused):
                     "showarrow": False,
                     "align": "left",
                     "bgcolor": "rgba(255, 255, 255, 0.5)",
-                    "text": "Confirmed in {}".format("Api"),
+                    "text": "Coin: {}".format(currency),
                 }
             ],
             "legend": {"orientation": "h"},
