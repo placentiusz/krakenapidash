@@ -5,6 +5,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import libs.apiCall
+from libs.status import StatusSimpleMinMax
 
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
@@ -56,7 +57,7 @@ app.layout = html.Div(
 def update_figure(currency, unused):
     """Update grap-api"""
     filtered_df = libs.apiCall.getData(currency)
-
+    wynik = StatusSimpleMinMax(filtered_df)
     return {
         "data": [
             {
@@ -105,7 +106,7 @@ def update_figure(currency, unused):
                     "showarrow": False,
                     "align": "left",
                     "bgcolor": "rgba(255, 255, 255, 0.5)",
-                    "text": "Confirmed in {}".format("Api"),
+                    "text": "Confirmed in {}, Action {}".format("Api", wynik.dataAnalize().name),
                 }
             ],
             "legend": {"orientation": "h"},
