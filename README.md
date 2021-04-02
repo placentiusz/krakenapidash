@@ -9,4 +9,4 @@ Displayed cryptocurrency:
 - Filecoin
 
 
-![monero-screenshot.png](doc/monero-screenshot.png "Mnero example" )
+![monero-screenshot.png](doc/monero-screenshot.png "Monero example" )
