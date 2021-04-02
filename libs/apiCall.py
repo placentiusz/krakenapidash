@@ -1,10 +1,12 @@
 """Simple ussage of public Kraken REST API"""
 from datetime import datetime
-import requests
-import pandas as pd
+
 import numpy as np
+import pandas as pd
+import requests
 from scipy import signal
 from scipy.signal import argrelextrema
+
 import libs.krakenDict
 
 

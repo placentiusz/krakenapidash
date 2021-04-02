@@ -31,6 +31,8 @@ app.layout = html.Div(
                             "bitcoin",
                             "litecoin",
                             "Ethereum",
+                            "Ripple",
+                            "Filecoin"
                         ]
                     ],
                     clearable=False,
@@ -106,7 +108,7 @@ def update_figure(currency, unused):
                     "showarrow": False,
                     "align": "left",
                     "bgcolor": "rgba(255, 255, 255, 0.5)",
-                    "text": "Confirmed in {}, Action {}".format("Api", wynik.dataAnalize().name),
+                    "text": "Confirmed in {}, Action: {}, MinMax diff % {}".format("Api", wynik.dataAnalize().name, wynik.getMinMax()),
                 }
             ],
             "legend": {"orientation": "h"},

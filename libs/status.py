@@ -1,5 +1,6 @@
 """Module for data analyse"""
 from enum import Enum
+
 import pandas as pd
 
 
@@ -17,6 +18,10 @@ class Signals:
     def __init__(self, dataframe: pd.DataFrame):
         self.analizedDataFrame = dataframe
 
+    def updateDataFrame(self, dataframe: pd.DataFrame):
+        """Update  used datadrame"""
+        self.analizedDataFrame = dataframe
+
     def dataAnalize(self) -> int:
         """Main method for analyse"""
         raise NotImplementedError("Not implemented")
@@ -29,10 +34,14 @@ class StatusSimpleMinMax(Signals):
         last = self.analizedDataFrame["close"].iloc[-1]
         minClose = self.analizedDataFrame["close"].quantile(0.10)
         maxClose = self.analizedDataFrame["close"].quantile(0.90)
-        print(minClose, maxClose)
+        print(minClose, maxClose, minClose/maxClose)
         if last < minClose:
             return Status.BUY
         if last > maxClose:
             return Status.SELL
 
         return Status.STAY
+
+    def getMinMax(self):
+        return self.analizedDataFrame["close"].quantile(0.10)/self.analizedDataFrame["close"].quantile(0.90)
+
