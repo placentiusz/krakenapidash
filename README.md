@@ -6,3 +6,7 @@ Displayed cryptocurrency:
 - Bitcoin
 - Litecoin
 - Ethereum
+- Filecoin
+
+
+![monero-screenshot.png](doc/monero-screenshot.png "Mnero example" )
